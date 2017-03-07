@@ -5,17 +5,17 @@ package com.selesy.errai.showcase;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import javax.inject.Named;
 
 import org.jboss.errai.common.client.dom.Button;
 import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.common.client.dom.Document;
-import org.jboss.errai.common.client.dom.HTMLElement;
 import org.jboss.errai.ioc.client.api.EntryPoint;
 import org.slf4j.Logger;
 
 import com.selesy.errai.mdc.MdcCheckboxImpl;
 import com.selesy.errai.mdc.button.MdcButton;
+import com.selesy.errai.mdc.fab.MdcFab;
+import com.selesy.errai.mdc.fab.MdcFabView;
 import com.selesy.errai.mdc.web.Mdc;
 import com.selesy.errai.showcase.views.DrawerView;
 
@@ -45,10 +45,29 @@ public class MdcErraiShowcase {
 	//@Named("button")
 	MdcButton mdcButton;
 	
+//	@Inject
+//	Sumptin sumptin;
+	
+	//@Inject
+	//@Named("line")
+	//@Block(element = "span", style = "sumptin")
+	//SubSumptin subSumptin;
+	
+	//@Inject
+	//@Named("span")
+    //@Block(element = "span", style = "sumptin")
+	//SvgElement svgElement;
+	
+	@Inject
+	MdcFab fab;
+	
+	@Inject
+	MdcFabView fabView;
+	
 	@PostConstruct
 	public void start() {
 		logger.trace("start()");
-		logger.debug("Is mdcButton null: {}", mdcButton == null);
+		//logger.debug("Is mdcButton null: {}", mdcButton == null);
 		//navigation.
 		Div root = (Div) document.getElementById("mdcErraiShowcase");
 		//document.getBody().appendChild(drawerView.getElement());
@@ -66,8 +85,14 @@ public class MdcErraiShowcase {
 		Mdc.autoInit();
 		//Mdc.autoInit(String::hashCode);
 		
-		root.appendChild((HTMLElement) mdcButton);
+		//root.appendChild((HTMLElement) mdcButton);
+		//root.appendChild(sumptin.getElement());
+		//root.appendChild(subSumptin.getElement());
 		
+		root.appendChild(mdcButton);
+		
+		root.appendChild(fab.getElement());
+		root.appendChild(fabView.getElement());
 	}
 
 }

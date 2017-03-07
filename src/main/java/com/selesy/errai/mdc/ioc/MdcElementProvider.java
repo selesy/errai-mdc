@@ -4,61 +4,52 @@
 package com.selesy.errai.mdc.ioc;
 
 import java.lang.annotation.Annotation;
-import java.util.stream.Stream;
 
 import javax.inject.Inject;
 
-import org.jboss.errai.common.client.dom.Button;
 import org.jboss.errai.common.client.dom.Span;
 import org.jboss.errai.common.client.dom.Window;
 import org.jboss.errai.ioc.client.api.ContextualTypeProvider;
-import org.jboss.errai.ioc.client.api.IOCProvider;
+import org.jboss.errai.ioc.client.api.Disposer;
 import org.slf4j.Logger;
 
+import com.selesy.errai.mdc.base.MdcComponent;
 import com.selesy.errai.mdc.base.MdcElement;
 
 /**
  * @author smoyer1
  *
  */
-@IOCProvider
-public class MdcElementProvider implements ContextualTypeProvider<MdcElement> { // <?
-																				// extends
-																				// MdcComponent,
-																				// ?
-																				// extends
-																				// MdcFoundation>>
-																				// {
+public abstract class MdcElementProvider<T extends MdcElement<MdcComponent>>
+    implements ContextualTypeProvider<T>, Disposer<T> {
 
-	@Inject
-	Logger logger;
+  @Inject
+  Logger logger;
+  
+  T element;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.jboss.errai.ioc.client.api.ContextualTypeProvider#provide(java.lang.
-	 * Class[], java.lang.annotation.Annotation[])
-	 */
-	@SuppressWarnings("rawtypes")
-	@Override
-	// public MdcElement<? extends MdcComponent, ? extends MdcFoundation>
-	// provide(Class<?>[] typeargs,
-	// Annotation[] qualifiers) {
-	public MdcElement provide(Class<?>[] typeArgs, Annotation[] qualifiers) {
-		logger.trace("provide(Class[], Annotation[])");
+  @Override
+  public void dispose(T beanInstance) {
+    logger.trace("dispose(T extends MdcElement)");
+    // TODO Auto-generated method stub
 
-		if (logger.isDebugEnabled()) {
-			Stream.of(typeArgs).forEach(c -> logger.debug(c.getSimpleName()));
-			Stream.of(qualifiers).forEach(c -> logger.debug(c.annotationType().getSimpleName()));
-		}
+  }
 
-		// TODO Auto-generated method stub
-		Span text = (Span) Window.getDocument().createElement("span");
-		text.setInnerHTML("Press me harder!");
-		Button button = (Button) Window.getDocument().createElement("button");
-		button.appendChild(text);
-		return (MdcElement) button;
-	}
-	
+  @Override
+  public T provide(Class<?>[] typeargs, Annotation[] qualifiers) {
+    logger.trace("provide(Class[], Annotation[]");
+    getElements();
+    // TODO Auto-generated method stub
+    Span span = (Span) Window.getDocument().createElement("span");
+    span.setInnerHTML("Sumptin else!");
+    return (T) span;
+  }
+  
+  String[] getElements() {
+    logger.trace("getElements()");
+    //Class<T> clazz = (Class<T>) element.getClass();
+    //logger.debug("Element type: {}", clazz.getSimpleName());
+    return new String[0];
+  }
+
 }

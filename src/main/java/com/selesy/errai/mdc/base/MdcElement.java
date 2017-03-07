@@ -5,7 +5,7 @@ package com.selesy.errai.mdc.base;
 
 
 
-import org.jboss.errai.common.client.dom.Element;
+import org.jboss.errai.common.client.dom.HTMLElement;
 
 import jsinterop.annotations.JsType;
 
@@ -13,7 +13,7 @@ import jsinterop.annotations.JsType;
  * @author smoyer1
  *
  */
-//@JsType(isNative = true)
-public interface MdcElement { //<C extends MdcComponent, F extends MdcFoundation> {
+@JsType(isNative = true)
+public interface MdcElement<C extends MdcComponent> extends HTMLElement {
 
 }

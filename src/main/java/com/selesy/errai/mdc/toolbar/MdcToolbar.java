@@ -6,7 +6,6 @@ package com.selesy.errai.mdc.toolbar;
 import org.jboss.errai.common.client.api.annotations.Element;
 
 import com.selesy.errai.mdc.base.Component;
-import com.selesy.errai.mdc.base.Foundation;
 import com.selesy.errai.mdc.base.MdcComponent;
 
 import jsinterop.annotations.JsType;
@@ -17,8 +16,8 @@ import jsinterop.annotations.JsType;
  */
 @JsType(isNative = true)
 @Element("div")
-@Foundation
-@Component
+//@Foundation
+@Component(MdcComponent.class)
 public interface MdcToolbar { //extends MdcComponent {
 
 }

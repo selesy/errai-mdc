@@ -6,6 +6,7 @@ package com.selesy.errai.mdc.web;
 import org.jboss.errai.common.client.dom.HTMLElement;
 
 import com.selesy.errai.mdc.MdcCheckbox;
+import com.selesy.errai.mdc.base.MdcComponent;
 import com.selesy.errai.mdc.base.MdcLogger;
 
 import jsinterop.annotations.JsMethod;
@@ -42,6 +43,12 @@ public class Mdc {
 //	public static native void autoInit(Element element, @JsOptional Optional<Consumer<String>> alternateLogger);
 	
 	@JsMethod(namespace = "mdc.checkbox", name = "MDCCheckbox")
-	public static native MdcCheckbox createMdcCheckbox(HTMLElement htmlElement);
+	public static native MdcCheckbox createMdcCheckbox(HTMLElement element);
+	
+	@JsMethod(namespace = "mdc.base", name ="MDCComponent")
+	public static native MdcComponent createMdcComponent(HTMLElement element);
+	
+	@JsMethod(namespace = "mdc.base.MDCComponent", name = "attachTo")
+	public static native MdcComponent attachMdcComponentTo(HTMLElement element);
 
 }

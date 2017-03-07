@@ -20,6 +20,9 @@ public class MdcComponent {
 	
 	@JsConstructor
 	public MdcComponent(HTMLElement element) {}
+	
+	@JsMethod(name = "attachTo")
+	public static native MdcComponent attachTo(HTMLElement element);
 
 	@JsMethod(name = "cssClasses")
 	public static native Set<String> getCssClasses();
