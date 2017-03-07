@@ -11,7 +11,7 @@ import jsinterop.annotations.JsType;
  * @author smoyer1
  *
  */
-@JsType
+@JsType(isNative = true)
 @Element("div")
 public interface MdcFormField {
 

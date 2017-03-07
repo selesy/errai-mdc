@@ -3,21 +3,19 @@
  */
 package com.selesy.errai.mdc;
 
-import org.jboss.errai.common.client.api.IsElement;
-import org.jboss.errai.ui.shared.api.annotations.Templated;
+import org.jboss.errai.common.client.dom.HTMLElement;
 
-import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsType;
 
 /**
  * @author smoyer1
  *
  */
-@Templated
-@JsType(isNative = true)
-public interface MdcCheckbox {
+@JsType(isNative = true, namespace = "mdc.checkbox", name = "MDCCheckbox")
+public class MdcCheckbox {
 	
-	@JsMethod
-	MdcCheckbox MdcCheckbox(IsElement element);
+	@JsConstructor
+	public MdcCheckbox(HTMLElement htmlElement) {};
 	
 }

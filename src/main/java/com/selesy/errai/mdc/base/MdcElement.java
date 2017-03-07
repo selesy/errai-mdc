@@ -3,12 +3,17 @@
  */
 package com.selesy.errai.mdc.base;
 
-import org.jboss.errai.common.client.api.IsElement;
+
+
+import org.jboss.errai.common.client.dom.Element;
+
+import jsinterop.annotations.JsType;
 
 /**
  * @author smoyer1
  *
  */
-public interface MdcElement<C, F> extends IsElement {
+//@JsType(isNative = true)
+public interface MdcElement { //<C extends MdcComponent, F extends MdcFoundation> {
 
 }
