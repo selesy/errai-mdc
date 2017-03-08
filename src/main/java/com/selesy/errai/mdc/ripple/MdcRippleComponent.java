@@ -38,36 +38,32 @@ import jsinterop.annotations.JsType;
  * @see https://www.material.io/icons/
  */
 @JsType(isNative = true, namespace = "mdc.ripple", name = "MDCRipple")
-public class MdcRippleComponent extends MdcBaseComponent {
+public class MdcRippleComponent extends MdcBaseComponent<MdcRippleFoundation> {
 
-	@JsConstructor
-	public MdcRippleComponent(HTMLElement element) {
-		// This method body is really only here to satisfy Java syntax
-		// requirements. If the underlying Javascript class didn't
-		// have a constructor, this class could be an interface. No code
-		// in this block is ever executed.
-		super(element);
-	}
+  @JsConstructor
+  public MdcRippleComponent(HTMLElement element) {
+    // This method body is really only here to satisfy Java syntax
+    // requirements. If the underlying Javascript class didn't
+    // have a constructor, this class could be an interface. No code
+    // in this block is ever executed.
+    super(element);
+  }
 
-	@JsMethod
-	public static native MdcRippleComponent attachTo(HTMLElement element);
+  // This method needs to be overriden in every subclass since it's static
+  // and we can't use a class-level generic to resolve the return type.
+  @JsMethod
+  public static native MdcRippleComponent attachTo(HTMLElement element);
 
-	@JsProperty(name = "unbounded")
-	public native boolean getUnbounded();
+  @JsProperty(name = "unbounded")
+  public native boolean getUnbounded();
 
-	@JsProperty(name = "unbounded")
-	public native void setUnbounded(boolean unbounded);
+  @JsProperty(name = "unbounded")
+  public native void setUnbounded(boolean unbounded);
 
-	@JsMethod
-	public native void activate();
+  @JsMethod
+  public native void activate();
 
-	@JsMethod
-	public native void deactivate();
-
-	@JsMethod
-	public native void getDefaultFoundation();
-
-	@JsMethod(name = "initialSyncWithDOM")
-	public native void initialSyncWithDom();
+  @JsMethod
+  public native void deactivate();
 
 }
