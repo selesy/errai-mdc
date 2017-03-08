@@ -70,6 +70,6 @@ public class MdcBaseComponent<F extends MdcBaseFoundation> {
   public native <E extends Event> void removeEventListener(String eventType, EventListener<E> listener);
 
   @JsMethod
-  public native <E extends Event> void emit();
+  public native <E extends Event> void emit(E event);
 
 }
