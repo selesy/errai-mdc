@@ -9,6 +9,6 @@ package com.selesy.errai.mdc.base;
  */
 public @interface Component {
 
-  Class<? extends MdcComponent> value();
+  Class<? extends MdcBaseComponent> value();
 
 }

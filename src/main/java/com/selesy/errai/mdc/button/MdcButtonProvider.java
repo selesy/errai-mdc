@@ -4,7 +4,7 @@ import org.jboss.errai.ioc.client.api.IOCProvider;
 
 import com.selesy.errai.mdc.ioc.MdcElementProvider;
 
-@IOCProvider
+//@IOCProvider
 public class MdcButtonProvider extends MdcElementProvider<MdcButton> {
 
 }

@@ -14,6 +14,6 @@ import jsinterop.annotations.JsType;
  *
  */
 @JsType(isNative = true)
-public interface MdcElement<C extends MdcComponent> extends HTMLElement {
+public interface MdcElement<C extends MdcBaseComponent> extends HTMLElement {
 
 }

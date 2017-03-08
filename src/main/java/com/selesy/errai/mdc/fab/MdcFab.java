@@ -5,19 +5,21 @@ import javax.inject.Inject;
 
 import org.jboss.errai.common.client.api.IsElement;
 import org.jboss.errai.common.client.dom.HTMLElement;
+import org.jboss.errai.common.client.ui.HasValue;
 
 import com.selesy.errai.mdc.base.Component;
-import com.selesy.errai.mdc.base.MdcComponent;
+import com.selesy.errai.mdc.base.MdcBaseComponent;
+import com.selesy.errai.mdc.icon.Icon;
 import com.selesy.errai.mdc.web.Mdc;
 
 //@Element("button")
-@Component(MdcComponent.class)
-public class MdcFab implements IsElement {
+@Component(MdcBaseComponent.class)
+public class MdcFab implements IsElement, HasValue<Icon> {
   
   @Inject
   MdcFabView view;
   
-  MdcComponent component;
+  MdcBaseComponent component;
   
   @PostConstruct
   public void postConstruct() {
@@ -32,5 +34,23 @@ public class MdcFab implements IsElement {
     // TODO Auto-generated method stub
     return view.getElement();
   }
+
+/* (non-Javadoc)
+ * @see org.jboss.errai.common.client.ui.HasValue#getValue()
+ */
+@Override
+public Icon getValue() {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+/* (non-Javadoc)
+ * @see org.jboss.errai.common.client.ui.HasValue#setValue(java.lang.Object)
+ */
+@Override
+public void setValue(Icon value) {
+	// TODO Auto-generated method stub
+	
+}
 
 }

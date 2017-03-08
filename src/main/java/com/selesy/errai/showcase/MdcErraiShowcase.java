@@ -5,10 +5,12 @@ package com.selesy.errai.showcase;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.jboss.errai.common.client.dom.Button;
 import org.jboss.errai.common.client.dom.Div;
 import org.jboss.errai.common.client.dom.Document;
+import org.jboss.errai.common.client.dom.Window;
 import org.jboss.errai.ioc.client.api.EntryPoint;
 import org.slf4j.Logger;
 
@@ -16,6 +18,7 @@ import com.selesy.errai.mdc.MdcCheckboxImpl;
 import com.selesy.errai.mdc.button.MdcButton;
 import com.selesy.errai.mdc.fab.MdcFab;
 import com.selesy.errai.mdc.fab.MdcFabView;
+import com.selesy.errai.mdc.ripple.MdcRippleComponent;
 import com.selesy.errai.mdc.web.Mdc;
 import com.selesy.errai.showcase.views.DrawerView;
 
@@ -42,7 +45,7 @@ public class MdcErraiShowcase {
 	MdcCheckboxImpl mdcCheckboxImpl;
 	
 	@Inject
-	//@Named("button")
+	@Named("button")
 	MdcButton mdcButton;
 	
 //	@Inject
@@ -93,6 +96,16 @@ public class MdcErraiShowcase {
 		
 		root.appendChild(fab.getElement());
 		root.appendChild(fabView.getElement());
+		
+		Div rippleSquare = (Div) Window.getDocument().createElement("div");
+		rippleSquare.setAttribute("class", "mdc-ripple-surface");
+		rippleSquare.setAttribute("style", "height: 200px; width: 200px; border: 1px solid black");
+		//MdcRippleComponent rippleComponent = MdcRippleComponent.attachTo(rippleSquare);
+		MdcRippleComponent rippleComponent = new MdcRippleComponent(rippleSquare);
+		//rippleComponent.setUnbounded(true);
+		root.appendChild(rippleSquare);
+		rippleComponent.activate();
+		
 	}
 
 }

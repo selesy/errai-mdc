@@ -6,7 +6,7 @@ package com.selesy.errai.mdc.web;
 import org.jboss.errai.common.client.dom.HTMLElement;
 
 import com.selesy.errai.mdc.MdcCheckbox;
-import com.selesy.errai.mdc.base.MdcComponent;
+import com.selesy.errai.mdc.base.MdcBaseComponent;
 import com.selesy.errai.mdc.base.MdcLogger;
 
 import jsinterop.annotations.JsMethod;
@@ -16,7 +16,7 @@ import jsinterop.annotations.JsType;
  * @author smoyer1
  *
  */
-@JsType(isNative = true)
+@JsType(isNative = true) //, namespace = "mdc")
 public class Mdc {
 	
 	@JsMethod(namespace = "mdc")
@@ -46,9 +46,9 @@ public class Mdc {
 	public static native MdcCheckbox createMdcCheckbox(HTMLElement element);
 	
 	@JsMethod(namespace = "mdc.base", name ="MDCComponent")
-	public static native MdcComponent createMdcComponent(HTMLElement element);
+	public static native MdcBaseComponent createMdcComponent(HTMLElement element);
 	
 	@JsMethod(namespace = "mdc.base.MDCComponent", name = "attachTo")
-	public static native MdcComponent attachMdcComponentTo(HTMLElement element);
+	public static native MdcBaseComponent attachMdcComponentTo(HTMLElement element);
 
 }

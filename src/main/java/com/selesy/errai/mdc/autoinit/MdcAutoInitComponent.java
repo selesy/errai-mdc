@@ -16,7 +16,7 @@ import jsinterop.annotations.JsType;
  *
  */
 @JsType(isNative = true, name = "")
-public class NativeMdcAutoInit {
+public interface MdcAutoInitComponent {
 	
 	
 //	@JsMethod
