@@ -16,12 +16,14 @@ import org.jboss.errai.common.client.dom.Window;
 import org.jboss.errai.ioc.client.api.EntryPoint;
 import org.slf4j.Logger;
 
-import com.selesy.errai.mdc.MdcCheckboxImpl;
 import com.selesy.errai.mdc.button.MdcButton;
+import com.selesy.errai.mdc.checkbox.MdcCheckbox;
 import com.selesy.errai.mdc.fab.MdcFab;
 import com.selesy.errai.mdc.fab.MdcFabView;
+import com.selesy.errai.mdc.icon.Icon;
+import com.selesy.errai.mdc.icon.IconFamily;
+import com.selesy.errai.mdc.icon.MdcIcon;
 import com.selesy.errai.mdc.ripple.MdcRippleComponent;
-import com.selesy.errai.mdc.ripple.MdcRippleFoundation;
 import com.selesy.errai.mdc.web.Mdc;
 import com.selesy.errai.showcase.views.DrawerView;
 
@@ -45,11 +47,21 @@ public class MdcErraiShowcase {
   DrawerView drawerView;
 
   @Inject
-  MdcCheckboxImpl mdcCheckboxImpl;
+  MdcCheckbox mdcCheckbox;
 
   @Inject
   @Named("button")
   MdcButton mdcButton;
+  
+  @Inject
+  @Named("i")
+  @Icon(family = IconFamily.MATERIAL_ICONS, label = "Happy", content="mood")
+  MdcIcon smileyIcon;
+
+  @Inject
+  @Named("i")
+  @Icon(family = IconFamily.MATERIAL_ICONS, label = "Sad", content="mood_bad")
+  MdcIcon frownyIcon;
 
   // @Inject
   // Sumptin sumptin;
@@ -81,7 +93,7 @@ public class MdcErraiShowcase {
     // Mdc.autoInit(drawerView);
     // NativeMdcAutoInit.mdcAutoInit(drawerView.getElement());
 
-    root.appendChild(mdcCheckboxImpl.getElement());
+    root.appendChild(mdcCheckbox.getElement());
 
     Button button = (Button) document.createElement("button");
     button.setAttribute("class", "mdc-button mdc-button--raised mdc-button--primary");
@@ -95,10 +107,14 @@ public class MdcErraiShowcase {
     // root.appendChild(sumptin.getElement());
     // root.appendChild(subSumptin.getElement());
 
-    root.appendChild(mdcButton);
+    //root.appendChild(mdcButton);
+    
+    root.appendChild(smileyIcon);
+    root.appendChild(frownyIcon);
 
     root.appendChild(fab.getElement());
     root.appendChild(fabView.getElement());
+    MdcRippleComponent.attachTo(fabView.getElement());
 
     Div rippleSquare = (Div) Window.getDocument().createElement("div");
     rippleSquare.setAttribute("class", "mdc-ripple-surface");
@@ -109,7 +125,6 @@ public class MdcErraiShowcase {
     // rippleComponent.setUnbounded(true);
     root.appendChild(rippleSquare);
     rippleComponent.activate();
-    MdcRippleFoundation rippleFoundation = rippleComponent.getDefaultFoundation();
 
     fab.getElement().addEventListener("click", new EventListener<Event>() {
 
@@ -119,6 +134,19 @@ public class MdcErraiShowcase {
       }
 
     }, true);
+    
+    
+    root.appendChild(mdcCheckbox.getElement());
+    fabView.getElement().addEventListener("click", new EventListener<Event>() {
+
+      @Override
+      public void call(Event event) {
+        rippleComponent.activate();
+        mdcCheckbox.setIndeterminate(true);
+      }
+
+    }, true);
+    
   }
 
 }

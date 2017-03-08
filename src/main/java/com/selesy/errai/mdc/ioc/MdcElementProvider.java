@@ -13,14 +13,11 @@ import org.jboss.errai.ioc.client.api.ContextualTypeProvider;
 import org.jboss.errai.ioc.client.api.Disposer;
 import org.slf4j.Logger;
 
-import com.selesy.errai.mdc.base.MdcBaseComponent;
-import com.selesy.errai.mdc.base.MdcElement;
-
 /**
  * @author smoyer1
  *
  */
-public abstract class MdcElementProvider<T extends MdcElement<MdcBaseComponent>>
+public abstract class MdcElementProvider<T extends Object> //MdcElement<MdcBaseComponent>>
     implements ContextualTypeProvider<T>, Disposer<T> {
 
   @Inject
