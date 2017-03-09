@@ -10,7 +10,7 @@ import javax.inject.Qualifier;
 @Qualifier
 public @interface Block {
 
-  String element();
   String style();
+  String[] tags();
 
 }
