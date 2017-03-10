@@ -45,6 +45,10 @@
   		<groupId>org.jboss.errai</groupId>
   		<artifactId>errai-navigation</artifactId>
   	</dependency>
+  	<dependency>
+  	  <groupId>com.selesy.errai</groupId>
+  	  <artifactId>errai-mdc-native</artifactId>
+  	</dependency>
 	</dependencies>
   
     <build>
