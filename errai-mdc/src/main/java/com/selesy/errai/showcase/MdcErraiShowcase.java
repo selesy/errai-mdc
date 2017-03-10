@@ -17,6 +17,7 @@ import org.jboss.errai.ioc.client.api.EntryPoint;
 import org.slf4j.Logger;
 
 import com.selesy.errai.mdc.MdcRippleComponent;
+import com.selesy.errai.mdc.autoinit.MdcAutoInitComponent;
 import com.selesy.errai.mdc.button.MdcButton;
 import com.selesy.errai.mdc.checkbox.MdcCheckbox;
 import com.selesy.errai.mdc.fab.MdcFab;
@@ -24,7 +25,7 @@ import com.selesy.errai.mdc.fab.MdcFabView;
 import com.selesy.errai.mdc.icon.Icon;
 import com.selesy.errai.mdc.icon.IconFamily;
 import com.selesy.errai.mdc.icon.MdcIcon;
-import com.selesy.errai.mdc.web.Mdc;
+import com.selesy.errai.mdc.list.MdcList;
 import com.selesy.errai.showcase.views.DrawerView;
 
 /**
@@ -48,6 +49,9 @@ public class MdcErraiShowcase {
 
   @Inject
   MdcCheckbox mdcCheckbox;
+  
+  @Inject
+  MdcList mdcList;
 
   @Inject
   @Named("button")
@@ -85,6 +89,7 @@ public class MdcErraiShowcase {
   @PostConstruct
   public void start() {
     logger.trace("start()");
+    logger.debug("Is mdcList null: {}", mdcList == null);
     // logger.debug("Is mdcButton null: {}", mdcButton == null);
     // navigation.
     Div root = (Div) document.getElementById("mdcErraiShowcase");
@@ -100,8 +105,16 @@ public class MdcErraiShowcase {
     button.setAttribute("data-mdc-auto-init", "MDCRipple");
     button.setInnerHTML("Press me!");
     root.appendChild(button);
-    Mdc.autoInit();
+    MdcAutoInitComponent.autoInit();
     // Mdc.autoInit(String::hashCode);
+    
+    Button button2 = (Button) document.createElement("button");
+    button2.setAttribute("class", "mdc-button mdc-button--raised mdc-button--accent");
+    button2.setAttribute("data-mdc-auto-init", "MDCRipple");
+    button2.setInnerHTML("Press me instead!");
+    root.appendChild(button2);
+    MdcAutoInitComponent.autoInit(button2);
+    MdcAutoInitComponent.autoInit();
 
     // root.appendChild((HTMLElement) mdcButton);
     // root.appendChild(sumptin.getElement());

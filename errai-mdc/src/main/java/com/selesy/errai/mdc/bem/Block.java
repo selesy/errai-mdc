@@ -4,13 +4,14 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 import java.lang.annotation.Retention;
 
+import javax.enterprise.util.Nonbinding;
 import javax.inject.Qualifier;
 
 @Retention(RUNTIME)
 @Qualifier
 public @interface Block {
 
-  String style();
-  String[] tags();
+  @Nonbinding String style();
+  @Nonbinding String[] tags();
 
 }

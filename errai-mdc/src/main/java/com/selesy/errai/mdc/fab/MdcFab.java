@@ -10,7 +10,6 @@ import org.jboss.errai.common.client.ui.HasValue;
 import com.selesy.errai.mdc.MdcBaseComponent;
 import com.selesy.errai.mdc.base.Component;
 import com.selesy.errai.mdc.icon.MdcIcon;
-import com.selesy.errai.mdc.web.Mdc;
 
 //@Element("button")
 @Component(MdcBaseComponent.class)

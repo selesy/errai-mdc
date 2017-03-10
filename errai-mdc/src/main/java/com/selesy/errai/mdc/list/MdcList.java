@@ -12,8 +12,12 @@ import com.selesy.errai.mdc.bem.Modifiers;
  *
  */
 @Block(style = "mdc-list", tags = { "nav ul ol" })
-@Elements({"mdc-list-item", "mdc-list-divider"})
-@Modifiers({"dense", "two-line", "avatar-list"})
+//@Elements({"mdc-list-item", "mdc-list-divider"})
+//@Modifiers({"dense", "two-line", "avatar-list"})
 public class MdcList {
 
+  public MdcList(String tag) {
+    
+  }
+  
 }
