@@ -1,9 +1,7 @@
 /**
  * 
  */
-package com.selesy.errai.mdc.drawer;
-
-import com.selesy.errai.mdc.base.MdcBaseFoundation;
+package com.selesy.errai.mdc;
 
 import jsinterop.annotations.JsType;
 

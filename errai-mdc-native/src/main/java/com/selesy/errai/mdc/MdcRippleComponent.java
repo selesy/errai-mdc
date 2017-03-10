@@ -1,18 +1,17 @@
 /**
  * 
  */
-package com.selesy.errai.mdc.base;
+package com.selesy.errai.mdc;
 
-import org.jboss.errai.common.client.dom.Event;
-import org.jboss.errai.common.client.dom.EventListener;
 import org.jboss.errai.common.client.dom.HTMLElement;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
+import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
- * This class is a native wrapper for the base MDCComponent from the
+ * This class is a native wrapper for the base MDCRipple from the
  * material-components-web (MCD) project. This class, and any sub-classes
  * faithfully follow the underlying model of the MCD project with the exception
  * of Java adapting to recognized coding conventions where possible.
@@ -24,8 +23,9 @@ import jsinterop.annotations.JsType;
  * 
  * References:
  * 
- * @see https://github.com/material-components/material-components-web/tree/master/packages/mdc-base
- * @see https://github.com/material-components/material-components-web/blob/master/packages/mdc-base/index.js
+ * @see https://github.com/material-components/material-components-web/tree/master/packages/mdc-ripple
+ * @see https://github.com/material-components/material-components-web/blob/master/packages/mdc-ripple/index.js
+ * @see http://material-components-web.appspot.com/ripple.html
  * 
  * @see https://github.com/material-components/material-components-web
  * @see http://material-components-web.appspot.com/
@@ -35,41 +35,33 @@ import jsinterop.annotations.JsType;
  * @see https://www.material.io/components/
  * @see https://www.material.io/icons/
  */
-@JsType(isNative = true, namespace = "mdc.base", name = "MDCComponent")
-public class MdcBaseComponent<F extends MdcBaseFoundation> {
+@JsType(isNative = true, namespace = "mdc.ripple", name = "MDCRipple")
+public class MdcRippleComponent extends MdcBaseComponent<MdcRippleFoundation> {
 
   @JsConstructor
-  public MdcBaseComponent(HTMLElement element) {
+  public MdcRippleComponent(HTMLElement element) {
     // This method body is really only here to satisfy Java syntax
     // requirements. If the underlying Javascript class didn't
     // have a constructor, this class could be an interface. No code
     // in this block is ever executed.
+    super(element);
   }
 
   // This method needs to be overriden in every subclass since it's static
   // and we can't use a class-level generic to resolve the return type.
   @JsMethod
-  public static native <C extends MdcBaseComponent<MdcBaseFoundation>> C attachTo(HTMLElement element);
+  public static native MdcRippleComponent attachTo(HTMLElement element);
+
+  @JsProperty(name = "unbounded")
+  public native boolean getUnbounded();
+
+  @JsProperty(name = "unbounded")
+  public native void setUnbounded(boolean unbounded);
 
   @JsMethod
-  public native void initialize(Object... args);
+  public native void activate();
 
   @JsMethod
-  public native F getDefaultFoundation();
-
-  @JsMethod
-  public native void initialSyncWithDom();
-
-  @JsMethod
-  public native void destroy();
-
-  @JsMethod
-  public native <E extends Event> void addEventListener(String eventType, EventListener<E> listener);
-
-  @JsMethod
-  public native <E extends Event> void removeEventListener(String eventType, EventListener<E> listener);
-
-  @JsMethod
-  public native <E extends Event> void emit(E event);
+  public native void deactivate();
 
 }

@@ -1,11 +1,9 @@
 /**
  * 
  */
-package com.selesy.errai.mdc.drawer;
+package com.selesy.errai.mdc;
 
 import org.jboss.errai.common.client.dom.HTMLElement;
-
-import com.selesy.errai.mdc.base.MdcBaseComponent;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
@@ -61,5 +59,5 @@ public class MdcTemporaryDrawerComponent extends MdcBaseComponent<MdcTemporaryDr
 	  public native void setOpen(boolean open);
 	  
 	  @JsProperty(name = "drawer")
-	  public native MdcDrawerView getDrawer();
+	  public native HTMLElement getDrawer();
 }

@@ -1,11 +1,10 @@
 /**
  * 
  */
-package com.selesy.errai.mdc.ripple;
+package com.selesy.errai.mdc;
 
 import org.jboss.errai.common.client.dom.HTMLElement;
-
-import com.selesy.errai.mdc.base.MdcBaseComponent;
+import org.jboss.errai.common.client.dom.Input;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
@@ -13,7 +12,7 @@ import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
- * This class is a native wrapper for the base MDCRipple from the
+ * This class is a native wrapper for the base MDCComponent from the
  * material-components-web (MCD) project. This class, and any sub-classes
  * faithfully follow the underlying model of the MCD project with the exception
  * of Java adapting to recognized coding conventions where possible.
@@ -25,9 +24,9 @@ import jsinterop.annotations.JsType;
  * 
  * References:
  * 
- * @see https://github.com/material-components/material-components-web/tree/master/packages/mdc-ripple
- * @see https://github.com/material-components/material-components-web/blob/master/packages/mdc-ripple/index.js
- * @see http://material-components-web.appspot.com/ripple.html
+ * @see https://github.com/material-components/material-components-web/tree/master/packages/mdc-checkbox
+ * @see https://github.com/material-components/material-components-web/blob/master/packages/mdc-checkbox/index.js
+ * @see http://material-components-web.appspot.com/checkbox.html
  * 
  * @see https://github.com/material-components/material-components-web
  * @see http://material-components-web.appspot.com/
@@ -37,11 +36,11 @@ import jsinterop.annotations.JsType;
  * @see https://www.material.io/components/
  * @see https://www.material.io/icons/
  */
-@JsType(isNative = true, namespace = "mdc.ripple", name = "MDCRipple")
-public class MdcRippleComponent extends MdcBaseComponent<MdcRippleFoundation> {
+@JsType(isNative = true, namespace = "mdc.checkbox", name = "MDCCheckbox")
+public class MdcCheckboxComponent extends MdcBaseComponent<MdcCheckboxFoundation> {
 
   @JsConstructor
-  public MdcRippleComponent(HTMLElement element) {
+  public MdcCheckboxComponent(HTMLElement element) {
     // This method body is really only here to satisfy Java syntax
     // requirements. If the underlying Javascript class didn't
     // have a constructor, this class could be an interface. No code
@@ -52,18 +51,33 @@ public class MdcRippleComponent extends MdcBaseComponent<MdcRippleFoundation> {
   // This method needs to be overriden in every subclass since it's static
   // and we can't use a class-level generic to resolve the return type.
   @JsMethod
-  public static native MdcRippleComponent attachTo(HTMLElement element);
-
-  @JsProperty(name = "unbounded")
-  public native boolean getUnbounded();
-
-  @JsProperty(name = "unbounded")
-  public native void setUnbounded(boolean unbounded);
+  public static native MdcCheckboxComponent attachTo(HTMLElement element);
 
   @JsMethod
-  public native void activate();
+  public native Input getCheckboxElement();
 
-  @JsMethod
-  public native void deactivate();
+  @JsProperty(name = "ripple")
+  public native MdcRippleComponent getRipple();
+
+  @JsProperty(name = "ripple")
+  public native void setRipple(MdcRippleComponent ripple);
+
+  @JsProperty(name = "checked")
+  public native boolean getChecked();
+
+  @JsProperty(name = "checked")
+  public native void setChecked(boolean checked);
+
+  @JsProperty(name = "indeterminate")
+  public native boolean getIndeterminate();
+
+  @JsProperty(name = "indeterminate")
+  public native void setIndeterminate(boolean indeterminate);
+
+  @JsProperty(name = "disabled")
+  public native boolean getDisabled();
+
+  @JsProperty(name = "disabled")
+  public native boolean setDisabled();
 
 }

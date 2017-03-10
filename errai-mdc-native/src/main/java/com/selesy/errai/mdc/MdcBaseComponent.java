@@ -1,17 +1,14 @@
 /**
  * 
  */
-package com.selesy.errai.mdc.checkbox;
+package com.selesy.errai.mdc;
 
+import org.jboss.errai.common.client.dom.Event;
+import org.jboss.errai.common.client.dom.EventListener;
 import org.jboss.errai.common.client.dom.HTMLElement;
-import org.jboss.errai.common.client.dom.Input;
-
-import com.selesy.errai.mdc.base.MdcBaseComponent;
-import com.selesy.errai.mdc.ripple.MdcRippleComponent;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
@@ -27,9 +24,8 @@ import jsinterop.annotations.JsType;
  * 
  * References:
  * 
- * @see https://github.com/material-components/material-components-web/tree/master/packages/mdc-checkbox
- * @see https://github.com/material-components/material-components-web/blob/master/packages/mdc-checkbox/index.js
- * @see http://material-components-web.appspot.com/checkbox.html
+ * @see https://github.com/material-components/material-components-web/tree/master/packages/mdc-base
+ * @see https://github.com/material-components/material-components-web/blob/master/packages/mdc-base/index.js
  * 
  * @see https://github.com/material-components/material-components-web
  * @see http://material-components-web.appspot.com/
@@ -39,48 +35,41 @@ import jsinterop.annotations.JsType;
  * @see https://www.material.io/components/
  * @see https://www.material.io/icons/
  */
-@JsType(isNative = true, namespace = "mdc.checkbox", name = "MDCCheckbox")
-public class MdcCheckboxComponent extends MdcBaseComponent<MdcCheckboxFoundation> {
+@JsType(isNative = true, namespace = "mdc.base", name = "MDCComponent")
+public class MdcBaseComponent<F extends MdcBaseFoundation> {
 
   @JsConstructor
-  public MdcCheckboxComponent(HTMLElement element) {
+  public MdcBaseComponent(HTMLElement element) {
     // This method body is really only here to satisfy Java syntax
     // requirements. If the underlying Javascript class didn't
     // have a constructor, this class could be an interface. No code
     // in this block is ever executed.
-    super(element);
   }
 
   // This method needs to be overriden in every subclass since it's static
   // and we can't use a class-level generic to resolve the return type.
   @JsMethod
-  public static native MdcCheckboxComponent attachTo(HTMLElement element);
+  public static native <C extends MdcBaseComponent<MdcBaseFoundation>> C attachTo(HTMLElement element);
 
   @JsMethod
-  public native Input getCheckboxElement();
+  public native void initialize(Object... args);
 
-  @JsProperty(name = "ripple")
-  public native MdcRippleComponent getRipple();
+  @JsMethod
+  public native F getDefaultFoundation();
 
-  @JsProperty(name = "ripple")
-  public native void setRipple(MdcRippleComponent ripple);
+  @JsMethod
+  public native void initialSyncWithDom();
 
-  @JsProperty(name = "checked")
-  public native boolean getChecked();
+  @JsMethod
+  public native void destroy();
 
-  @JsProperty(name = "checked")
-  public native void setChecked(boolean checked);
+  @JsMethod
+  public native <E extends Event> void addEventListener(String eventType, EventListener<E> listener);
 
-  @JsProperty(name = "indeterminate")
-  public native boolean getIndeterminate();
+  @JsMethod
+  public native <E extends Event> void removeEventListener(String eventType, EventListener<E> listener);
 
-  @JsProperty(name = "indeterminate")
-  public native void setIndeterminate(boolean indeterminate);
-
-  @JsProperty(name = "disabled")
-  public native boolean getDisabled();
-
-  @JsProperty(name = "disabled")
-  public native boolean setDisabled();
+  @JsMethod
+  public native <E extends Event> void emit(E event);
 
 }

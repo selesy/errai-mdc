@@ -1,6 +1,4 @@
-package com.selesy.errai.mdc.ripple;
-
-import com.selesy.errai.mdc.base.MdcBaseFoundation;
+package com.selesy.errai.mdc;
 
 import jsinterop.annotations.JsType;
 

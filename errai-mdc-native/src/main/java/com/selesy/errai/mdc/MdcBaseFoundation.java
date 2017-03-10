@@ -1,4 +1,4 @@
-package com.selesy.errai.mdc.base;
+package com.selesy.errai.mdc;
 
 import jsinterop.annotations.JsType;
 
