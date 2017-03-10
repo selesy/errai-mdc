@@ -17,6 +17,7 @@ import org.jboss.errai.ioc.client.api.EntryPoint;
 import org.slf4j.Logger;
 
 import com.selesy.errai.mdc.bem.TestBlockOne;
+import com.selesy.errai.mdc.bem.TestBlockThree;
 import com.selesy.errai.mdc.bem.TestBlockTwo;
 import com.selesy.errai.mdc.button.MdcButton;
 import com.selesy.errai.mdc.checkbox.MdcCheckbox;
@@ -56,12 +57,6 @@ public class MdcErraiShowcase {
   MdcButton mdcButton;
   
   @Inject
-  TestBlockOne testBlockOne;
-  
-  @Inject
-  TestBlockTwo testBlockTwo;
-  
-  @Inject
   @Named("i")
   @Icon(family = IconFamily.MATERIAL_ICONS, label = "Happy", content="mood")
   MdcIcon smileyIcon;
@@ -93,8 +88,6 @@ public class MdcErraiShowcase {
   @PostConstruct
   public void start() {
     logger.trace("start()");
-    logger.debug("testBlockOne null: {}", testBlockOne == null);
-    logger.debug("testBlockTwo null: {}", testBlockTwo == null);
     // logger.debug("Is mdcButton null: {}", mdcButton == null);
     // navigation.
     Div root = (Div) document.getElementById("mdcErraiShowcase");

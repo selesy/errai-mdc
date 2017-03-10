@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
  *
  */
 @IOCProvider
-public class BlockProvider<T extends IsBlock> implements ContextualTypeProvider<T>, Disposer<T> {
+public class BlockProvider implements ContextualTypeProvider<IsBlock>, Disposer<IsBlock> {
     
     static final Logger LOGGER = LoggerFactory.getLogger(BlockProvider.class);
 
@@ -24,7 +24,7 @@ public class BlockProvider<T extends IsBlock> implements ContextualTypeProvider<
      * @see org.jboss.errai.ioc.client.api.Disposer#dispose(java.lang.Object)
      */
     @Override
-    public void dispose(T beanInstance) {
+    public void dispose(IsBlock beanInstance) {
 	LOGGER.trace("dispose(T)");
 	// TODO Auto-generated method stub
 
@@ -34,7 +34,7 @@ public class BlockProvider<T extends IsBlock> implements ContextualTypeProvider<
      * @see org.jboss.errai.ioc.client.api.ContextualTypeProvider#provide(java.lang.Class[], java.lang.annotation.Annotation[])
      */
     @Override
-    public T provide(Class<?>[] typeargs, Annotation[] qualifiers) {
+    public IsBlock provide(Class<?>[] typeargs, Annotation[] qualifiers) {
 	LOGGER.trace("provide(Class[], Annoation[]");
 	// TODO Auto-generated method stub
 	return null;
