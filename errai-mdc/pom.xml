@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>com.selesy.errai</groupId>
+    <version>0.1-SNAPSHOT</version>
+    <artifactId>errai-mdc-parent</artifactId>
+  </parent>
+
+  <artifactId>errai-mdc</artifactId>
+	<name>Errai MDC</name>
+	<description>Provides Errai wrappers for the Material Design Components - Web.</description>
+
+<!-- 	<properties> -->
+<!-- 		<maven.compiler.source>1.8</maven.compiler.source> -->
+<!-- 		<maven.compiler.target>1.8</maven.compiler.target> -->
+
+<!-- 		<version.errai>4.0.0.CR1</version.errai> -->
+<!-- 		<version.gwt>2.8.0</version.gwt> -->
+<!-- 	</properties> -->
+
+<!-- 	<dependencyManagement> -->
+<!-- 		<dependencies> -->
+<!-- 			<dependency> -->
+<!-- 				<groupId>org.jboss.errai.bom</groupId> -->
+<!-- 				<artifactId>errai-bom</artifactId> -->
+<!-- 				<version>${version.errai}</version> -->
+<!-- 				<type>pom</type> -->
+<!-- 				<scope>import</scope> -->
+<!-- 			</dependency> -->
+<!-- 		</dependencies> -->
+<!-- 	</dependencyManagement> -->
+
+	<dependencies>
+  	<dependency>
+  		<groupId>org.jboss.errai</groupId>
+  		<artifactId>errai-ui</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.jboss.errai</groupId>
+  		<artifactId>errai-data-binding</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.jboss.errai</groupId>
+  		<artifactId>errai-navigation</artifactId>
+  	</dependency>
+	</dependencies>
+  
+    <build>
+    <!-- Output classes directly into the webapp, so that IDEs and "mvn process-classes" update them in DevMode -->
+    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+    
+        <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>src/main/java</directory>
+      </resource>
+      <resource>
+        <directory>target/generated-sources/delombok</directory>
+      </resource>
+    </resources>
+    
+    </build>
+    
+  <profiles>
+    <profile>
+      <id>showcase</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>gwt-maven-plugin</artifactId>
+            <version>${version.gwt}</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>compile</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <runTarget>index.html</runTarget>
+              <strict>true</strict>
+              <extraJvmArgs>-Xmx2048m</extraJvmArgs>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>2.6</version>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>war</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+  
+</project>
