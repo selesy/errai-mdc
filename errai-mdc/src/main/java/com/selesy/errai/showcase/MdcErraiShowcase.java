@@ -16,9 +16,7 @@ import org.jboss.errai.common.client.dom.Window;
 import org.jboss.errai.ioc.client.api.EntryPoint;
 import org.slf4j.Logger;
 
-import com.selesy.errai.mdc.bem.TestBlockOne;
-import com.selesy.errai.mdc.bem.TestBlockThree;
-import com.selesy.errai.mdc.bem.TestBlockTwo;
+import com.selesy.errai.mdc.MdcRippleComponent;
 import com.selesy.errai.mdc.button.MdcButton;
 import com.selesy.errai.mdc.checkbox.MdcCheckbox;
 import com.selesy.errai.mdc.fab.MdcFab;
@@ -26,7 +24,6 @@ import com.selesy.errai.mdc.fab.MdcFabView;
 import com.selesy.errai.mdc.icon.Icon;
 import com.selesy.errai.mdc.icon.IconFamily;
 import com.selesy.errai.mdc.icon.MdcIcon;
-import com.selesy.errai.mdc.ripple.MdcRippleComponent;
 import com.selesy.errai.mdc.web.Mdc;
 import com.selesy.errai.showcase.views.DrawerView;
 

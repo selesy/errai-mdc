@@ -5,7 +5,7 @@ package com.selesy.errai.mdc.web;
 
 import org.jboss.errai.common.client.dom.HTMLElement;
 
-import com.selesy.errai.mdc.base.MdcBaseComponent;
+import com.selesy.errai.mdc.MdcBaseComponent;
 import com.selesy.errai.mdc.base.MdcLogger;
 import com.selesy.errai.mdc.checkbox.MdcCheckbox;
 

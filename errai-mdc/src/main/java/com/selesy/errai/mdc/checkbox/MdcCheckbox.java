@@ -8,6 +8,8 @@ import javax.inject.Inject;
 import org.jboss.errai.common.client.api.IsElement;
 import org.jboss.errai.common.client.dom.HTMLElement;
 
+import com.selesy.errai.mdc.MdcCheckboxComponent;
+
 /**
  * @author swm16
  *

@@ -5,8 +5,8 @@ package com.selesy.errai.mdc.toolbar;
 
 import org.jboss.errai.common.client.api.annotations.Element;
 
+import com.selesy.errai.mdc.MdcBaseComponent;
 import com.selesy.errai.mdc.base.Component;
-import com.selesy.errai.mdc.base.MdcBaseComponent;
 
 import jsinterop.annotations.JsType;
 

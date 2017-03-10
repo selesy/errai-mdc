@@ -3,6 +3,8 @@
  */
 package com.selesy.errai.mdc.base;
 
+import com.selesy.errai.mdc.MdcBaseComponent;
+
 /**
  * @author smoyer1
  *

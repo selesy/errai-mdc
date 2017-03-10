@@ -7,8 +7,8 @@ import org.jboss.errai.common.client.api.IsElement;
 import org.jboss.errai.common.client.dom.HTMLElement;
 import org.jboss.errai.common.client.ui.HasValue;
 
+import com.selesy.errai.mdc.MdcBaseComponent;
 import com.selesy.errai.mdc.base.Component;
-import com.selesy.errai.mdc.base.MdcBaseComponent;
 import com.selesy.errai.mdc.icon.MdcIcon;
 import com.selesy.errai.mdc.web.Mdc;
 
@@ -26,7 +26,7 @@ public class MdcFab implements IsElement, HasValue<MdcIcon> {
     //component = new MdcComponent(view.getElement());
     //component = MdcComponent.attachTo(view.getElement());
     //component = Mdc.createMdcComponent(view.getElement());
-    component = Mdc.attachMdcComponentTo(view.getElement());
+    //component = Mdc.attachMdcComponentTo(view.getElement());
   }
 
   @Override
