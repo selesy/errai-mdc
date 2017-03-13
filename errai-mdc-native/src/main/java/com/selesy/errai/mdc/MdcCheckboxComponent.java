@@ -59,9 +59,6 @@ public class MdcCheckboxComponent extends MdcBaseComponent<MdcCheckboxFoundation
   @JsProperty(name = "ripple")
   public native MdcRippleComponent getRipple();
 
-  @JsProperty(name = "ripple")
-  public native void setRipple(MdcRippleComponent ripple);
-
   @JsProperty(name = "checked")
   public native boolean getChecked();
 
