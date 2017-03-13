@@ -37,7 +37,7 @@ import jsinterop.annotations.JsType;
  * @see https://www.material.io/icons/
  */
 @JsType(isNative = true, namespace = "mdc.checkbox", name = "MDCCheckbox")
-public class MdcCheckboxComponent extends MdcBaseComponent<MdcCheckboxFoundation> {
+public class MdcCheckboxComponent extends MdcInputComponent<MdcCheckboxFoundation> {
 
   @JsConstructor
   public MdcCheckboxComponent(HTMLElement element) {
@@ -70,11 +70,5 @@ public class MdcCheckboxComponent extends MdcBaseComponent<MdcCheckboxFoundation
 
   @JsProperty(name = "indeterminate")
   public native void setIndeterminate(boolean indeterminate);
-
-  @JsProperty(name = "disabled")
-  public native boolean getDisabled();
-
-  @JsProperty(name = "disabled")
-  public native boolean setDisabled();
 
 }

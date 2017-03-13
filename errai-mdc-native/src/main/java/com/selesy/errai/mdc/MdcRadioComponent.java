@@ -34,7 +34,7 @@ import jsinterop.annotations.JsType;
  * @see https://www.material.io/icons/
  */
 @JsType(isNative = true, namespace = "mdc.radio", name = "MDCRadio")
-public class MdcRadioComponent extends MdcBaseComponent<MdcRadioFoundation> {
+public class MdcRadioComponent extends MdcInputComponent<MdcRadioFoundation> {
 
   @JsConstructor
   public MdcRadioComponent(HTMLElement element) {
@@ -61,11 +61,5 @@ public class MdcRadioComponent extends MdcBaseComponent<MdcRadioFoundation> {
 
   @JsProperty(name = "checked")
   public native void setChecked(boolean checked);
-
-  @JsProperty(name = "disabled")
-  public native boolean getDisabled();
-
-  @JsProperty(name = "disabled")
-  public native boolean setDisabled();
 
 }
