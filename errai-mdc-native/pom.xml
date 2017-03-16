@@ -1,6 +1,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
   <parent>
     <groupId>com.selesy.errai</groupId>
@@ -8,51 +8,55 @@
     <artifactId>errai-mdc-parent</artifactId>
   </parent>
 
-	<artifactId>errai-mdc-native</artifactId>
-  
-	<name>Errai MDC - Native</name>
-	<description>Provides Errai wrappers for the Material Design Components - Web.</description>
+  <artifactId>errai-mdc-native</artifactId>
 
-	<properties>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
+  <name>Errai MDC - Native</name>
+  <description>Provides Errai wrappers for the Material Design Components - Web.</description>
 
-		<version.errai>4.0.0.CR1</version.errai>
-		<version.gwt>2.8.0</version.gwt>
-	</properties>
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
 
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.jboss.errai.bom</groupId>
-				<artifactId>errai-bom</artifactId>
-				<version>${version.errai}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
+    <version.errai>4.0.0.CR1</version.errai>
+    <version.gwt>2.8.0</version.gwt>
+  </properties>
 
-	<dependencies>
-  	<dependency>
-  		<groupId>org.jboss.errai</groupId>
-  		<artifactId>errai-ui</artifactId>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.jboss.errai</groupId>
-  		<artifactId>errai-data-binding</artifactId>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.jboss.errai</groupId>
-  		<artifactId>errai-navigation</artifactId>
-  	</dependency>
-	</dependencies>
-  
-    <build>
+  <!-- <dependencyManagement> -->
+  <!-- <dependencies> -->
+  <!-- <dependency> -->
+  <!-- <groupId>org.jboss.errai.bom</groupId> -->
+  <!-- <artifactId>errai-bom</artifactId> -->
+  <!-- <version>${version.errai}</version> -->
+  <!-- <type>pom</type> -->
+  <!-- <scope>import</scope> -->
+  <!-- </dependency> -->
+  <!-- </dependencies> -->
+  <!-- </dependencyManagement> -->
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jboss.errai</groupId>
+      <artifactId>errai-ui</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.errai</groupId>
+      <artifactId>errai-data-binding</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.errai</groupId>
+      <artifactId>errai-navigation</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
     <!-- Output classes directly into the webapp, so that IDEs and "mvn process-classes" update them in DevMode -->
-    <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
-    
-        <resources>
+<!--     <outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory> -->
+
+    <resources>
       <resource>
         <directory>src/main/resources</directory>
       </resource>
@@ -63,9 +67,34 @@
         <directory>target/generated-sources/delombok</directory>
       </resource>
     </resources>
-    
-    </build>
-    
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok-maven-plugin</artifactId>
+          <version>1.16.10.0</version>
+          <executions>
+            <execution>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>delombok</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+
+  </build>
+
   <profiles>
     <profile>
       <id>showcase</id>
@@ -105,5 +134,5 @@
       </build>
     </profile>
   </profiles>
-  
+
 </project>

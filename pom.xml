@@ -16,11 +16,15 @@
   </modules>
 
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
 
     <version.errai>4.0.0.CR1</version.errai>
     <version.gwt>2.8.0</version.gwt>
+    <version.lombok>1.16.14</version.lombok>
+    <version.lombok.maven>${version.lombok}.0</version.lombok.maven>
   </properties>
 
   <dependencyManagement>
@@ -44,7 +48,47 @@
         <artifactId>errai-mdc-native</artifactId>
         <version>${project.version}</version>
       </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${version.lombok}</version>
+        <scope>provided</scope>
+      </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <build>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>src/main/java</directory>
+      </resource>
+      <resource>
+        <directory>target/generated-sources/delombok</directory>
+      </resource>
+    </resources>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.projectlombok</groupId>
+          <artifactId>lombok-maven-plugin</artifactId>
+          <version>${version.lombok.maven}</version>
+          <executions>
+            <execution>
+              <phase>generate-sources</phase>
+              <goals>
+                <goal>delombok</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+  </build>
 
 </project>
