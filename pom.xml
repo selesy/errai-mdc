@@ -30,20 +30,20 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.jboss.errai.bom</groupId>
-        <artifactId>errai-bom</artifactId>
-        <version>${version.errai}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-      <dependency>
         <groupId>com.google.gwt</groupId>
         <artifactId>gwt</artifactId>
         <version>${version.gwt}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <dependency>
+       <dependency>
+        <groupId>org.jboss.errai.bom</groupId>
+        <artifactId>errai-bom</artifactId>
+        <version>${version.errai}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+     <dependency>
         <groupId>com.selesy.errai</groupId>
         <artifactId>errai-mdc-native</artifactId>
         <version>${project.version}</version>
