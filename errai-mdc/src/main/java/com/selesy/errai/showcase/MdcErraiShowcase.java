@@ -17,6 +17,8 @@ import org.jboss.errai.ioc.client.api.EntryPoint;
 import org.slf4j.Logger;
 
 import com.selesy.errai.mdc.MdcRippleComponent;
+import com.selesy.errai.mdc.MdcSnackbarComponent;
+import com.selesy.errai.mdc.MdcSnackbarData;
 import com.selesy.errai.mdc.autoinit.MdcAutoInitComponent;
 import com.selesy.errai.mdc.button.MdcButton;
 import com.selesy.errai.mdc.checkbox.MdcCheckbox;
@@ -138,7 +140,7 @@ public class MdcErraiShowcase {
     // rippleComponent.setUnbounded(true);
     root.appendChild(rippleSquare);
     rippleComponent.activate();
-
+    
     fab.getElement().addEventListener("click", new EventListener<Event>() {
 
       @Override
@@ -150,6 +152,7 @@ public class MdcErraiShowcase {
     
     
     root.appendChild(mdcCheckbox.getElement());
+    
     fabView.getElement().addEventListener("click", new EventListener<Event>() {
 
       @Override
@@ -158,6 +161,43 @@ public class MdcErraiShowcase {
         mdcCheckbox.setIndeterminate(true);
       }
 
+    }, true);
+    
+    Div snackbar = (Div) document.createElement("div");
+    snackbar.setAttribute("class", "mdc-snackbar");
+    Div snackbarText = (Div) document.createElement("div");
+    snackbarText.setAttribute("class", "mdc-snackbar__text");
+    snackbar.appendChild(snackbarText);
+    Div snackbarActionWrapper = (Div) document.createElement("div");
+    snackbarActionWrapper.setAttribute("class", "mdc-snackbar__action-wrapper");
+    Button snackbarActionButton = (Button) document.createElement("button");
+    snackbarActionButton.setAttribute("class", "mdc-button mdc-snackbar__action-button");
+    snackbarActionButton.setAttribute("type", "button");
+    snackbarActionWrapper.appendChild(snackbarActionButton);
+    snackbar.appendChild(snackbarActionWrapper);
+    
+//    MdcSnackbarComponent snackbarComponent = new MdcSnackbarComponent(snackbar);
+    MdcSnackbarComponent snackbarComponent = MdcSnackbarComponent.attachTo(snackbar);
+    MdcSnackbarData snackbarData = new MdcSnackbarData();
+    //snackbarData.setMessage("This is a test");
+    snackbarData.message = "This is a test";
+    
+//    Map<String, String> snackbarData = new HashMap<>();
+//    snackbarData.put("message", "This is a test");
+    //EJObject snackbarData = new ErraiJSON
+    
+//    final JSONObject snackbarData = new JSONObject();
+//    snackbarData.put("message", new JSONString("This is a test"));
+
+    button2.addEventListener("click", new EventListener<Event>() {
+
+      @Override
+      public void call(Event event) {
+        logger.trace("call(Event)");
+        logger.debug("JSONObject: {}", snackbarData);
+        snackbarComponent.show(snackbarData);
+      }
+      
     }, true);
     
   }
