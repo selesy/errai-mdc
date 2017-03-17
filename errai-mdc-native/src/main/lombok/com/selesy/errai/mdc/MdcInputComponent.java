@@ -4,7 +4,9 @@ import org.jboss.errai.common.client.dom.HTMLElement;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsProperty;
+import jsinterop.annotations.JsType;
 
+@JsType(isNative = true)
 public class MdcInputComponent<F extends MdcBaseFoundation> extends MdcBaseComponent<F> {
 
   @JsConstructor
