@@ -60,13 +60,13 @@ public class MdcCheckboxComponent extends MdcInputComponent<MdcCheckboxFoundatio
   public native MdcRippleComponent getRipple();
 
   @JsProperty(name = "checked")
-  public native boolean getChecked();
+  public native boolean isChecked();
 
   @JsProperty(name = "checked")
   public native void setChecked(boolean checked);
 
   @JsProperty(name = "indeterminate")
-  public native boolean getIndeterminate();
+  public native boolean isIndeterminate();
 
   @JsProperty(name = "indeterminate")
   public native void setIndeterminate(boolean indeterminate);

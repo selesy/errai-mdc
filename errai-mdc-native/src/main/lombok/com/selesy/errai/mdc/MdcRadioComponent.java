@@ -57,7 +57,7 @@ public class MdcRadioComponent extends MdcInputComponent<MdcRadioFoundation> {
   public native MdcRippleComponent getRipple();
 
   @JsProperty(name = "checked")
-  public native boolean getChecked();
+  public native boolean isChecked();
 
   @JsProperty(name = "checked")
   public native void setChecked(boolean checked);

@@ -53,7 +53,7 @@ public class MdcRippleComponent extends MdcBaseComponent<MdcRippleFoundation> {
   public static native MdcRippleComponent attachTo(HTMLElement element);
 
   @JsProperty(name = "unbounded")
-  public native boolean getUnbounded();
+  public native boolean isUnbounded();
 
   @JsProperty(name = "unbounded")
   public native void setUnbounded(boolean unbounded);

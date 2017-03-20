@@ -19,7 +19,7 @@ public class MdcInputComponent<F extends MdcBaseFoundation> extends MdcBaseCompo
   }
 
   @JsProperty(name = "disabled")
-  public native boolean getDisabled();
+  public native boolean isDisabled();
 
   @JsProperty(name = "disabled")
   public native boolean setDisabled();
