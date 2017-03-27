@@ -4,11 +4,9 @@
 package com.selesy.errai.mdc;
 
 import org.jboss.errai.common.client.dom.HTMLElement;
-import org.jboss.errai.common.client.dom.Input;
 
 import jsinterop.annotations.JsConstructor;
 import jsinterop.annotations.JsMethod;
-import jsinterop.annotations.JsProperty;
 import jsinterop.annotations.JsType;
 
 /**
