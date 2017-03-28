@@ -34,7 +34,7 @@ import jsinterop.annotations.JsType;
  * @see https://www.material.io/components/
  * @see https://www.material.io/icons/
  */
-@JsType(isNative = true, namespace = "mdc.checkbox", name = "MDCCheckbox")
+@JsType(isNative = true, namespace = "mdc.textfield", name = "MDCTextfield")
 public class MdcTextfieldComponent extends MdcInputComponent<MdcTextfieldFoundation> {
 
   @JsConstructor
