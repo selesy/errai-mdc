@@ -3,7 +3,7 @@
  */
 package com.selesy.errai.mdc;
 
-import org.jboss.errai.common.client.dom.Element;
+import org.jboss.errai.common.client.dom.HTMLElement;
 
 import jsinterop.annotations.JsMethod;
 import jsinterop.annotations.JsType;
@@ -22,14 +22,14 @@ public class MdcAutoInitComponent {
   public static native void autoInit();
 
   @JsMethod(namespace = "mdc")
-  public static native void autoInit(Element element);
+  public static native void autoInit(HTMLElement element);
 
   // TODO - Add a method with this signature:
-  // @JsMethod(namespace = "mdc")
-  // public static native void autoInit(HTMLElement element, MdcLogger warn);
+//   @JsMethod(namespace = "mdc")
+//   public static native void autoInit(HTMLElement element, MdcLogger warn);
 
-  // TODO - Add a method with this signature:
-  // @JsMethod(namespace = "mdc")
-  // public static native void autoInit(MdcLogger warn);
+   // TODO - Add a method with this signature:
+//   @JsMethod(namespace = "mdc")
+//   public static native void autoInit(MdcLogger warn);
 
 }
