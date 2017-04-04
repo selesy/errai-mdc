@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.selesy.errai.mdc.base;
+package com.selesy.errai.mdc;
 
 import jsinterop.annotations.JsFunction;
 
@@ -13,6 +13,6 @@ import jsinterop.annotations.JsFunction;
 @JsFunction
 public interface MdcLogger {
 	
-	void warn(String message);
+	void warn();
 
 }
